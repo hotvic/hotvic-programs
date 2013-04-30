@@ -15,25 +15,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys, getopt, re
+import sys, argparse, re
 
-sopts="hc:"
-lopts="help google-coordinates=".split()
+parser = argparse.ArgumentParser(description='Conver DMS(Degrees Minutes Seconds, WGS84, Commonly used in GPS and Google Earth) to Decimal Degrees')
+# Add arguments
+parser.add_argument('--coordinates', '-c', help="Set coordinates, if isn't set script will ask")
 
-opts, args = getopt.getopt(sys.argv[1:], sopts, lopts)
+args = parser.parse_args()
 
-coo = False
-hel = """\
-Usage: dms2dec [options]
-Options:
-  -c|--google-coordinates          Set coordinates, if isn't set script will ask"""
-
-for o, v in opts:
-    if o in ["-c", "--google-coordinates"]:
-        coo = v
-    elif o in ["-h", "--help"]:
-        print hel
-        exit(-1)
+coo = args.coordinates
 
 if not coo:
     coo = raw_input('Please Enter G. Earth Coordinates(WGS84, i.e: 6°58\'34.96"S, 35°47\'59.60"O)=> ')
