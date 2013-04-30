@@ -17,7 +17,7 @@
 
 import sys, argparse, re
 
-parser = argparse.ArgumentParser(description='Conver DMS(Degrees Minutes Seconds, WGS84, Commonly used in GPS and Google Earth) to Decimal Degrees')
+parser = argparse.ArgumentParser(description='Convert DMS(Degrees Minutes Seconds, WGS84, Commonly used in GPS and Google Earth) to Decimal Degrees')
 # Add arguments
 parser.add_argument('--coordinates', '-c', help="Set coordinates, if isn't set script will ask")
 
